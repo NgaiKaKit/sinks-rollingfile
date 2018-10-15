@@ -22,7 +22,7 @@ namespace Serilog.Sinks.RollingFileAlternate.Sinks.SizeRollingFileSink
 
         public SizeLimitedLogFileInfo Next(string logFilePrefix)
         {
-            DateTime now = DateTime.UtcNow;
+            DateTime now = DateTime.Now;
             if (this.Date.Date != now.Date)
             {
                 return new SizeLimitedLogFileInfo(now, 1, logFilePrefix);

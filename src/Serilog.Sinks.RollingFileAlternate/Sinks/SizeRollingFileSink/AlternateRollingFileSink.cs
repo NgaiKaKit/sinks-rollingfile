@@ -76,7 +76,7 @@ namespace Serilog.Sinks.RollingFileAlternate.Sinks.SizeRollingFileSink
                 {
                     throw new ObjectDisposedException(ThisObjectName, "The rolling file sink has been disposed");
                 }
-                bool newDay = this.currentSink.LogFileDescription.LogFileInfo.Date.Date != DateTime.UtcNow.Date;
+                bool newDay = this.currentSink.LogFileDescription.LogFileInfo.Date.Date != DateTime.Now.Date;
                 if (this.currentSink.SizeLimitReached || newDay)
                 {
                     this.currentSink = NextSizeLimitedFileSink();
@@ -93,7 +93,7 @@ namespace Serilog.Sinks.RollingFileAlternate.Sinks.SizeRollingFileSink
         {
             EnsureDirectoryCreated(this.logDirectory);
 
-            SizeLimitedLogFileInfo logFileInfo = SizeLimitedLogFileInfo.GetLatestOrNew(DateTime.UtcNow, this.logDirectory, this.logFilePrefix);
+            SizeLimitedLogFileInfo logFileInfo = SizeLimitedLogFileInfo.GetLatestOrNew(DateTime.Now, this.logDirectory, this.logFilePrefix);
 
             return new SizeLimitedFileSink(
                 this.formatter,

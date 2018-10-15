@@ -24,7 +24,7 @@ namespace Serilog.Sinks.RollingFileAlternate.Sinks.HourlyRolling
 
         internal HourlyLogFileDescription Next()
         {
-            return new HourlyLogFileDescription(this.LogFileInfo.Next(), DateTime.UtcNow);
+            return new HourlyLogFileDescription(this.LogFileInfo.Next(), DateTime.Now);
         }
     }
 }

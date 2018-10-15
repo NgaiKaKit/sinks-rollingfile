@@ -22,7 +22,7 @@ namespace Serilog.Sinks.RollingFileAlternate.Sinks.HourlyRolling
 
         public HourlyLogFileInfo Next()
         {
-            DateTime now = DateTime.UtcNow;
+            DateTime now = DateTime.Now;
             if (this.Date.Hour != now.Hour)
             {
                 return new HourlyLogFileInfo(now, 1);

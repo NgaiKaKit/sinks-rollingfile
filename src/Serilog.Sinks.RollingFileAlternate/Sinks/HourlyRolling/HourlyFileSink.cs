@@ -27,7 +27,7 @@ namespace Serilog.Sinks.RollingFileAlternate.Sinks.HourlyRolling
             this.formatter = formatter;
             this.hourlyLogFileDescription = hourlyLogFileDescription;
 
-            string logDir = Path.Combine(logRootDirectory, DateTime.UtcNow.ToString("yyyy-MM-dd"));
+            string logDir = Path.Combine(logRootDirectory, DateTime.Now.ToString("yyyy-MM-dd"));
 
             this.output = this.OpenFileForWriting(logDir, hourlyLogFileDescription, encoding ?? Encoding.UTF8);
         }
